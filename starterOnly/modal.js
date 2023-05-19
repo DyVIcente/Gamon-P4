@@ -86,13 +86,14 @@ let currentDate = `${day}-${0}${month}-${year}`
 // Fonction pour valider le formulaire
 function isValid() {
 
-  if (firstName.value === "" || firstName.value.length < 2) {
+  // on rajoute la vérification si le champ contient des chiffres
+  if (firstName.value === "" || firstName.value.length < 2 || /\d/.test(firstName.value)) {
     displayError(formData[0], 'Veuillez renseigner votre prénom')
   } else {
     removeError(formData[0])
   }
 
-  if (lastName.value === "") {
+  if (lastName.value === "" || lastName.value.length < 2 || /\d/.test(firstName.value)) {
     displayError(formData[1], 'Veuillez renseigner votre nom')
   } else {
     removeError(formData[1])
